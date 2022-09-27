@@ -33,7 +33,7 @@ function createMessage(benchmarks: any, oldBenchmarks: any) {
   let message = "## Result of Benchmark Tests\n";
 
   // Table Title
-  message += "| Benchmark | Min | Max | Mean |";
+  message += "| Benchmark | OP/s | Min | Max | Mean |";
   if(oldBenchmarks !== undefined) {
     message += " Mean on Repo `HEAD` |"
   }
@@ -51,6 +51,7 @@ function createMessage(benchmarks: any, oldBenchmarks: any) {
     const benchmark = benchmarks[benchmarkName];
 
     message += `| ${benchmarkName}`;
+    message += `| ${benchmark.ops}`;
     message += `| ${benchmark.min}`;
     message += `| ${benchmark.max}`;
     message += `| ${benchmark.mean} `;
