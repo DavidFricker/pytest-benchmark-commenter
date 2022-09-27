@@ -1,4 +1,4 @@
-name: 'Comment with Pytest-Benchmark Result'
+name: 'Publish with Pytest-Benchmark Result'
 author: Nils Braun
 description: 'Read in the pytest-benchmark result and comment on a pull request'
 branding:
