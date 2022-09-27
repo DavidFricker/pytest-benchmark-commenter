@@ -3,6 +3,7 @@ const github = require("@actions/github");
 const fs = require("fs");
 
 class Benchmark {
+  ops : number;
   max : number;
   min : number;
   mean : number;
@@ -10,6 +11,7 @@ class Benchmark {
 
   constructor(benchmark: any) {
     const stats = benchmark["stats"];
+    this.ops = stats["ops"].toFixed(2);
     this.max = stats["max"].toFixed(2);
     this.min = stats["min"].toFixed(2);
     this.mean = stats["mean"].toFixed(2);
@@ -40,7 +42,7 @@ function createMessage(benchmarks: any, oldBenchmarks: any) {
   message += "\n";
 
   // Table Column Definition
-  message += "| :--- | :---: | :---: | :---: |";
+  message += "| :--- | :---: | :---: | :---: | :---: |";
   if(oldBenchmarks !== undefined) {
     message += " :---: |"
   }
