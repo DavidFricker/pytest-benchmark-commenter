@@ -728,6 +728,7 @@ const fs = __webpack_require__(747);
 class Benchmark {
     constructor(benchmark) {
         const stats = benchmark["stats"];
+        this.ops = stats["ops"].toFixed(2);
         this.max = stats["max"].toFixed(2);
         this.min = stats["min"].toFixed(2);
         this.mean = stats["mean"].toFixed(2);
@@ -752,7 +753,7 @@ function createMessage(benchmarks, oldBenchmarks) {
     }
     message += "\n";
     // Table Column Definition
-    message += "| :--- | :---: | :---: | :---: |";
+    message += "| :--- | :---: | :---: | :---: | :---: |";
     if (oldBenchmarks !== undefined) {
         message += " :---: |";
     }
